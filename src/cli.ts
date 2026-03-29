@@ -72,9 +72,12 @@ LOOP FOREVER:
 - score improved → keep
 - score equal + code reduced → keep (simplification win)
 - score slightly worse (within -1%) + code significantly reduced (20+ lines) → keep
-- score worse → discard
+- score worse → discard: \`git reset --hard HEAD~1\` (NOT git revert)
 - crash → trivial bug (typo, missing import)? fix and re-run.
-          fundamental failure? discard + log as crash.
+          fundamental failure? discard via \`git reset --hard HEAD~1\` + log as crash.
+
+Discard MUST use \`git reset --hard HEAD~1\`, never \`git revert\`.
+Revert pollutes history. Reset keeps the branch clean.
 
 ## Logging (DO NOT EDIT)
 After each judgment, YOU (the agent) append a record to \`.sindri/results/<branch>.jsonl\`.
@@ -113,7 +116,7 @@ When branches >= 2 in config:
 1. Read \`.sindri/config.yaml\` for settings
 2. Check \`.sindri/results/\`
    - If history exists → checkout last kept commit, resume
-   - If no history → create new branch, run baseline
+   - If no history → create experiment branch \`sindri/<purpose>\` (e.g. sindri/topk-speed, sindri/v1-heap), run baseline
 3. Confirm artifact scope
 
 ## Domain Context (EDIT THIS)

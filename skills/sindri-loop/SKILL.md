@@ -7,6 +7,8 @@ description: Use when the user wants to start or resume an autonomous experiment
 
 Start or resume the autonomous improvement loop.
 
+Communicate with the user in their language. Detect from their messages or system locale.
+
 ## Guard
 
 Before starting, check:

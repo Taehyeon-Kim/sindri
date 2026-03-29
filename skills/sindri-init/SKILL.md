@@ -8,6 +8,8 @@ description: Use when the user wants to set up an autonomous improvement loop in
 Set up an autonomous improvement loop in the current project.
 The most critical output is a well-designed evaluate function.
 
+Communicate with the user in their language. Detect from their messages or system locale.
+
 ## Phase 1: Explore
 
 Understand the project before asking anything.
