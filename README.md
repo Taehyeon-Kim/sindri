@@ -59,7 +59,8 @@ Sindri is both the tool and the testbed for that ongoing work.
 **Claude Code plugin (recommended):**
 
 ```bash
-claude /install-plugin github:Taehyeon-Kim/sindri
+claude plugin marketplace add Taehyeon-Kim/sindri
+claude plugin install sindri@sindri
 ```
 
 **Manual install (requires [Bun](https://bun.sh)):**
