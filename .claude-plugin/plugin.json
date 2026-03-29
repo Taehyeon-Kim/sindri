@@ -1,7 +1,7 @@
 {
   "name": "sindri",
   "description": "Autonomous improvement loop framework — write one evaluate function, let LLM iterate forever.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "skills": "./skills/",
   "license": "MIT"
 }

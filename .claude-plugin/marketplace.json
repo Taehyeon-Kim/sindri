@@ -8,7 +8,7 @@
     {
       "name": "sindri",
       "description": "Autonomous improvement loop framework. Write one evaluate function, let LLM iterate forever.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "source": "./",
       "author": {
         "name": "Taehyeon Kim"
