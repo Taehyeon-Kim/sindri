@@ -17,6 +17,7 @@ evaluate: bun .sindri/run.ts
 timeout: 900
 backtrack: 3
 branches: 1
+schedule: 0                     # seconds between cycles. 0 = continuous loop.
 `;
 }
 
@@ -231,6 +232,7 @@ function clean() {
   }
 }
 
+
 // ─── Main ────────────────────────────────────────────────────
 
 const cmd = process.argv[2];
@@ -251,9 +253,14 @@ switch (cmd) {
   default:
     console.log(`sindri — autonomous improvement loop framework
 
-Usage:
+CLI:
   sindri init       Create .sindri/ with defaults and templates
   sindri status     Show experiment stats for current branch
   sindri results    Print full JSONL history
-  sindri clean      Prune dead git worktrees`);
+  sindri clean      Prune dead git worktrees
+
+Inside Claude Code:
+  /sindri init      Interactive project setup with metric design
+  /sindri loop      Start continuous experiment loop
+  /sindri cycle     Run exactly one experiment cycle`);
 }

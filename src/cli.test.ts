@@ -192,6 +192,18 @@ describe("sindri results", () => {
 
 // ─── help ────────────────────────────────────────────────────
 
+// ─── config ─────────────────────────────────────────────────
+
+describe("config", () => {
+  test("config.yaml includes schedule field", () => {
+    run("init", tmpDir);
+    const config = readFileSync(join(tmpDir, ".sindri/config.yaml"), "utf-8");
+    expect(config).toContain("schedule: 0");
+  });
+});
+
+// ─── help ────────────────────────────────────────────────────
+
 describe("sindri help", () => {
   test("shows usage with no args", () => {
     const { stdout, exitCode } = run("", tmpDir);
@@ -200,5 +212,6 @@ describe("sindri help", () => {
     expect(stdout).toContain("sindri status");
     expect(stdout).toContain("sindri results");
     expect(stdout).toContain("sindri clean");
+    expect(stdout).toContain("/sindri cycle");
   });
 });

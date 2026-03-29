@@ -157,13 +157,36 @@ If the session ends, start a new one and run `/sindri loop` again.
 The agent picks up from the last kept commit automatically by reading
 `.sindri/results/<branch>.jsonl`.
 
+### Scheduled cycles (for delayed feedback domains)
+
+For domains where data needs time to accumulate between cycles
+(ad copy CTR, A/B tests, SEO rankings), use `/sindri cycle` instead of `/sindri loop`.
+
+Each invocation runs exactly one experiment cycle and stops.
+Call it periodically when new data is available.
+
+Set the schedule field in config.yaml (seconds between cycles):
+```yaml
+schedule: 0             # continuous (default)
+schedule: 1800          # every 30 minutes
+schedule: 21600         # every 6 hours
+```
+
 ## Commands
 
+CLI:
 ```
 sindri init      Create .sindri/ with defaults and templates
 sindri status    Show experiment stats for current branch
 sindri results   Print full JSONL history
 sindri clean     Prune dead git worktrees
+```
+
+Inside Claude Code:
+```
+/sindri init     Interactive project setup with metric design
+/sindri loop     Start continuous experiment loop
+/sindri cycle    Run exactly one experiment cycle
 ```
 
 ## How It Works
