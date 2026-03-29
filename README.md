@@ -1,5 +1,7 @@
 # Sindri
 
+[한국어](README_KO.md)
+
 Autonomous improvement loop framework.
 Write one `evaluate()` function, let the LLM iterate forever.
 
