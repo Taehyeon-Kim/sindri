@@ -1,0 +1,17 @@
+{
+  "name": "sindri",
+  "version": "0.1.0",
+  "description": "Autonomous improvement loop framework — write one evaluate function, let LLM iterate forever.",
+  "type": "module",
+  "bin": {
+    "sindri": "src/cli.ts"
+  },
+  "scripts": {
+    "dev": "bun src/cli.ts"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.9",
+    "@types/bun": "^1.3.11"
+  }
+}
