@@ -1,6 +1,7 @@
 ---
 name: sindri
-description: "Autonomous improvement loop (init | loop | cycle)"
+description: Autonomous improvement loop
+argument-hint: init | loop | cycle
 ---
 
 # /sindri
