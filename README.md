@@ -44,21 +44,22 @@ Performance in milliseconds? Easy. Test pass rate? Easy.
 But what about logo aesthetics? UX quality? Tone of voice?
 These don't produce a clean number.
 
-We found that a 2x2 matrix helps: objective vs subjective, immediate vs delayed.
-Subjective criteria can be broken into yes/no checklists that LLMs answer consistently.
+We found that a 2x2 classification helps: objective vs subjective, immediate vs delayed.
+Subjective criteria can use LLM-as-judge: break them into binary questions
+the model answers consistently.
 (Asking an LLM to rate something "7 out of 10" gives you a different number every time.
 Asking "is the text readable against the background, yes or no" is stable.)
 Delayed metrics can be approximated with leading indicators you can measure right now.
 
 ```mermaid
 quadrantChart
-    title Metric Design Matrix
+    title Metric Classification Matrix
     x-axis Immediate --> Delayed
     y-axis Subjective --> Objective
     quadrant-1 Leading indicators
     quadrant-2 Direct measurement
-    quadrant-3 Yes/No checklists
-    quadrant-4 Checklists + indicators
+    quadrant-3 LLM-as-judge
+    quadrant-4 LLM judge + proxy
     Response time: [0.2, 0.8]
     Test pass rate: [0.3, 0.9]
     Bundle size: [0.15, 0.75]

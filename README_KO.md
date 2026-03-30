@@ -1,5 +1,7 @@
 # Sindri
 
+[English](README.md)
+
 자율 개선 루프 프레임워크입니다.
 `evaluate()` 함수 하나만 작성하면, LLM이 알아서 반복 개선해줍니다.
 
@@ -44,23 +46,23 @@ ML 학습 말고 다른 곳에는 어떻게 적용하는 건지.
 그런데 로고가 예쁜지, UX가 좋은지, 문장의 톤이 맞는지 같은 건 어떡할까요?
 이런 건 깔끔한 숫자로 나오지 않습니다.
 
-여기서 2x2 매트릭스로 개념을 정리해보았습니다.
+여기서 2x2 분류 매트릭스로 개념을 정리해보았습니다.
 객관 vs 주관, 즉시 vs 지연.
 
-주관적인 기준도 "예/아니오" 체크리스트로 분해하면 LLM이 일관되게 판단할 수 있습니다.
+주관적인 기준은 LLM-as-judge 방식으로 이진 질문으로 분해하면 일관되게 판단할 수 있습니다.
 "10점 만점에 몇 점?"이라고 물으면 매번 다른 답이 나오지만,
 "텍스트가 배경 대비 읽히나요?"라고 물으면 답이 안정적이거든요.
-지연 메트릭은 지금 바로 측정 가능한 선행지표로 대체할 수 있고요.
+지연 메트릭은 지금 바로 측정 가능한 선행지표(proxy)로 대체할 수 있고요.
 
 ```mermaid
 quadrantChart
-    title Metric Design Matrix
+    title Metric Classification Matrix
     x-axis Immediate --> Delayed
     y-axis Subjective --> Objective
     quadrant-1 Leading indicators
     quadrant-2 Direct measurement
-    quadrant-3 Yes/No checklists
-    quadrant-4 Checklists + indicators
+    quadrant-3 LLM-as-judge
+    quadrant-4 LLM judge + proxy
     Response time: [0.2, 0.8]
     Test pass rate: [0.3, 0.9]
     Bundle size: [0.15, 0.75]
@@ -179,13 +181,36 @@ sindri results              # 전체 실험 히스토리
 에이전트가 `.sindri/results/<branch>.jsonl`을 읽어서
 마지막 유지된 커밋부터 자동으로 이어서 실험합니다.
 
+### 스케줄 사이클 (지연 피드백 도메인)
+
+사이클 사이에 데이터가 쌓여야 하는 도메인
+(광고 카피 CTR, A/B 테스트, SEO 순위 등)에서는 `/sindri:loop` 대신 `/sindri:cycle`을 사용하세요.
+
+한 번 호출하면 정확히 한 사이클만 실행하고 멈춥니다.
+새 데이터가 들어왔을 때 주기적으로 호출하면 됩니다.
+
+config.yaml의 schedule 필드로 사이클 간격을 설정하세요 (초 단위):
+```yaml
+schedule: 0             # 연속 실행 (기본값)
+schedule: 1800          # 30분마다
+schedule: 21600         # 6시간마다
+```
+
 ## 명령어
 
+CLI:
 ```
 sindri init      .sindri/를 기본 설정과 템플릿으로 생성합니다
 sindri status    현재 브랜치의 실험 통계를 보여줍니다
 sindri results   전체 JSONL 히스토리를 출력합니다
 sindri clean     죽은 git worktree를 정리합니다
+```
+
+Claude Code 내부:
+```
+/sindri:init     대화형 프로젝트 설정 및 메트릭 설계
+/sindri:loop     연속 실험 루프 시작
+/sindri:cycle    정확히 한 사이클만 실행
 ```
 
 ## 동작 원리
