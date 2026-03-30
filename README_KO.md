@@ -100,6 +100,23 @@ claude plugin install sindri@sindri
 /plugin install sindri@sindri
 ```
 
+**Codex CLI:**
+
+Codex에 입력:
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/Taehyeon-Kim/sindri/main/.codex/INSTALL.md
+```
+
+또는 수동 설치:
+```bash
+git clone https://github.com/Taehyeon-Kim/sindri.git ~/.codex/sindri
+cd ~/.codex/sindri && bun install && bun link
+mkdir -p ~/.agents/skills
+ln -s ~/.codex/sindri/skills ~/.agents/skills/sindri
+```
+
+자세한 내용과 Windows 설치 방법은 [.codex/INSTALL.md](.codex/INSTALL.md)를 참고하세요.
+
 **수동 설치 ([Bun](https://bun.sh) 필요):**
 
 ```bash
@@ -164,10 +181,15 @@ Sindri Claude Code 플러그인을 사용하시면 `/sindri init`이
 
 ### 루프 실행
 
-새 Claude Code 세션을 열고 자율 루프를 시작합니다:
+새 Claude Code 또는 Codex CLI 세션을 열고 자율 루프를 시작합니다:
 
 ```bash
-claude "/sindri loop"
+claude "/sindri loop"    # Claude Code
+```
+
+Codex CLI:
+```
+sindri loop
 ```
 
 에이전트가 `.sindri/agents.md`를 읽고, 베이스라인을 잡은 뒤
@@ -210,7 +232,7 @@ sindri results   전체 JSONL 히스토리를 출력합니다
 sindri clean     죽은 git worktree를 정리합니다
 ```
 
-Claude Code 내부:
+Claude Code 또는 Codex CLI:
 ```
 /sindri init     대화형 프로젝트 설정 및 메트릭 설계
 /sindri loop     연속 실험 루프 시작

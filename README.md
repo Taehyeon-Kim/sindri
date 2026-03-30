@@ -97,10 +97,27 @@ Or from inside Claude Code:
 /plugin install sindri@sindri
 ```
 
+**Codex CLI:**
+
+Tell Codex:
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/Taehyeon-Kim/sindri/main/.codex/INSTALL.md
+```
+
+Or install manually:
+```bash
+git clone https://github.com/Taehyeon-Kim/sindri.git ~/.codex/sindri
+cd ~/.codex/sindri && bun install && bun link
+mkdir -p ~/.agents/skills
+ln -s ~/.codex/sindri/skills ~/.agents/skills/sindri
+```
+
+See [.codex/INSTALL.md](.codex/INSTALL.md) for details and Windows instructions.
+
 **Manual install (requires [Bun](https://bun.sh)):**
 
 ```bash
-git clone https://github.com/user/sindri.git
+git clone https://github.com/Taehyeon-Kim/sindri.git
 cd sindri
 bun install
 bun link
@@ -161,10 +178,15 @@ The agent reads this to understand what it's working on.
 
 ### Run the loop
 
-Open a new Claude Code session and start the autonomous loop:
+Open a new Claude Code or Codex CLI session and start the autonomous loop:
 
 ```bash
-claude "/sindri loop"
+claude "/sindri loop"    # Claude Code
+```
+
+Codex CLI:
+```
+sindri loop
 ```
 
 The agent will read `.sindri/agents.md`, establish a baseline, and begin
@@ -207,7 +229,7 @@ sindri results   Print full JSONL history
 sindri clean     Prune dead git worktrees
 ```
 
-Inside Claude Code:
+Inside Claude Code or Codex CLI:
 ```
 /sindri init     Interactive project setup with metric design
 /sindri loop     Start continuous experiment loop
