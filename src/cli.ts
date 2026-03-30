@@ -235,6 +235,21 @@ function clean() {
 
 // ─── Main ────────────────────────────────────────────────────
 
+const HELP = `sindri — autonomous improvement loop framework
+
+CLI:
+  sindri init       Create .sindri/ with defaults and templates
+  sindri status     Show experiment stats for current branch
+  sindri results    Print full JSONL history
+  sindri clean      Prune dead git worktrees
+
+Inside Claude Code:
+  /sindri init      Interactive project setup with metric design
+  /sindri loop      Start continuous experiment loop
+  /sindri cycle     Run exactly one experiment cycle`;
+
+const COMMANDS = ["init", "status", "results", "clean", "help"];
+
 const cmd = process.argv[2];
 
 switch (cmd) {
@@ -250,17 +265,12 @@ switch (cmd) {
   case "clean":
     clean();
     break;
+  case "help":
+  case undefined:
+    console.log(HELP);
+    break;
   default:
-    console.log(`sindri — autonomous improvement loop framework
-
-CLI:
-  sindri init       Create .sindri/ with defaults and templates
-  sindri status     Show experiment stats for current branch
-  sindri results    Print full JSONL history
-  sindri clean      Prune dead git worktrees
-
-Inside Claude Code:
-  /sindri init      Interactive project setup with metric design
-  /sindri loop      Start continuous experiment loop
-  /sindri cycle     Run exactly one experiment cycle`);
+    console.error(`Unknown command: ${cmd}`);
+    console.error(`Available: ${COMMANDS.join(", ")}`);
+    process.exit(1);
 }
