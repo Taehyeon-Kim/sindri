@@ -52,6 +52,26 @@ ML 학습 말고 다른 곳에는 어떻게 적용하는 건지.
 "텍스트가 배경 대비 읽히나요?"라고 물으면 답이 안정적이거든요.
 지연 메트릭은 지금 바로 측정 가능한 선행지표로 대체할 수 있고요.
 
+```mermaid
+quadrantChart
+    title Metric Design Matrix
+    x-axis Immediate --> Delayed
+    y-axis Subjective --> Objective
+    quadrant-1 Leading indicators
+    quadrant-2 Direct measurement
+    quadrant-3 Yes/No checklists
+    quadrant-4 Checklists + indicators
+    Response time: [0.2, 0.8]
+    Test pass rate: [0.3, 0.9]
+    Bundle size: [0.15, 0.75]
+    User retention: [0.7, 0.85]
+    Conversion rate: [0.8, 0.75]
+    Text readability: [0.2, 0.25]
+    Code clarity: [0.35, 0.2]
+    Brand perception: [0.75, 0.2]
+    UX satisfaction: [0.8, 0.15]
+```
+
 실제 문제를 이 매트릭스에 매핑하는 건 솔직히 아직 연구 중입니다.
 패턴은 보이는데, 확신하려면 더 많은 사례가 필요합니다.
 Sindri는 그 연구를 위한 도구이기도 하고, 테스트베드이기도 합니다.

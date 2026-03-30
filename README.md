@@ -50,6 +50,26 @@ Subjective criteria can be broken into yes/no checklists that LLMs answer consis
 Asking "is the text readable against the background, yes or no" is stable.)
 Delayed metrics can be approximated with leading indicators you can measure right now.
 
+```mermaid
+quadrantChart
+    title Metric Design Matrix
+    x-axis Immediate --> Delayed
+    y-axis Subjective --> Objective
+    quadrant-1 Leading indicators
+    quadrant-2 Direct measurement
+    quadrant-3 Yes/No checklists
+    quadrant-4 Checklists + indicators
+    Response time: [0.2, 0.8]
+    Test pass rate: [0.3, 0.9]
+    Bundle size: [0.15, 0.75]
+    User retention: [0.7, 0.85]
+    Conversion rate: [0.8, 0.75]
+    Text readability: [0.2, 0.25]
+    Code clarity: [0.35, 0.2]
+    Brand perception: [0.75, 0.2]
+    UX satisfaction: [0.8, 0.15]
+```
+
 Mapping real problems onto this matrix is still something we're figuring out.
 The patterns are there, but they need more cases to become reliable.
 Sindri is both the tool and the testbed for that ongoing work.
