@@ -244,9 +244,9 @@ CLI:
   sindri clean      Prune dead git worktrees
 
 Inside Claude Code:
-  /sindri:init      Interactive project setup with metric design
-  /sindri:loop      Start continuous experiment loop
-  /sindri:cycle     Run exactly one experiment cycle`;
+  /sindri init      Interactive project setup with metric design
+  /sindri loop      Start continuous experiment loop
+  /sindri cycle     Run exactly one experiment cycle`;
 
 const COMMANDS = ["init", "status", "results", "clean", "help"];
 

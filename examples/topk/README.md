@@ -11,5 +11,5 @@ cp -r examples/topk /tmp/topk-test
 cd /tmp/topk-test
 git init
 sindri init
-claude "/sindri:loop"
+claude "/sindri loop"
 ```
