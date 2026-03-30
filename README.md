@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="Sindri" width="100%" />
+</p>
+
 # Sindri
 
 [한국어](README_KO.md)
