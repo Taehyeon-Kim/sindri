@@ -127,7 +127,7 @@ export function evaluate(): number {
 }
 ```
 
-Sindri Claude Code 플러그인을 사용하시면 `/sindri init`이
+Sindri Claude Code 플러그인을 사용하시면 `/sindri:init`이
 메트릭 설계를 대화형으로 가이드해줍니다.
 
 ### 도메인 컨텍스트 추가
@@ -141,7 +141,7 @@ Sindri Claude Code 플러그인을 사용하시면 `/sindri init`이
 새 Claude Code 세션을 열고 자율 루프를 시작합니다:
 
 ```bash
-claude "/sindri loop"
+claude "/sindri:loop"
 ```
 
 에이전트가 `.sindri/agents.md`를 읽고, 베이스라인을 잡은 뒤
@@ -155,7 +155,7 @@ sindri results              # 전체 실험 히스토리
 
 ### 중단 후 재개
 
-세션이 끝나면, 새 세션을 열고 `/sindri loop`을 다시 실행하세요.
+세션이 끝나면, 새 세션을 열고 `/sindri:loop`을 다시 실행하세요.
 에이전트가 `.sindri/results/<branch>.jsonl`을 읽어서
 마지막 유지된 커밋부터 자동으로 이어서 실험합니다.
 

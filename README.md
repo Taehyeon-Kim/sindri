@@ -125,7 +125,7 @@ export function evaluate(): number {
 }
 ```
 
-If you use the sindri Claude Code plugin, `/sindri init` will guide you through
+If you use the sindri Claude Code plugin, `/sindri:init` will guide you through
 metric design interactively, helping you pick the right pattern for your domain.
 
 ### Add domain context
@@ -139,7 +139,7 @@ The agent reads this to understand what it's working on.
 Open a new Claude Code session and start the autonomous loop:
 
 ```bash
-claude "/sindri loop"
+claude "/sindri:loop"
 ```
 
 The agent will read `.sindri/agents.md`, establish a baseline, and begin
@@ -153,14 +153,14 @@ sindri results              # full experiment history
 
 ### Resume after interruption
 
-If the session ends, start a new one and run `/sindri loop` again.
+If the session ends, start a new one and run `/sindri:loop` again.
 The agent picks up from the last kept commit automatically by reading
 `.sindri/results/<branch>.jsonl`.
 
 ### Scheduled cycles (for delayed feedback domains)
 
 For domains where data needs time to accumulate between cycles
-(ad copy CTR, A/B tests, SEO rankings), use `/sindri cycle` instead of `/sindri loop`.
+(ad copy CTR, A/B tests, SEO rankings), use `/sindri:cycle` instead of `/sindri:loop`.
 
 Each invocation runs exactly one experiment cycle and stops.
 Call it periodically when new data is available.
@@ -184,9 +184,9 @@ sindri clean     Prune dead git worktrees
 
 Inside Claude Code:
 ```
-/sindri init     Interactive project setup with metric design
-/sindri loop     Start continuous experiment loop
-/sindri cycle    Run exactly one experiment cycle
+/sindri:init     Interactive project setup with metric design
+/sindri:loop     Start continuous experiment loop
+/sindri:cycle    Run exactly one experiment cycle
 ```
 
 ## How It Works

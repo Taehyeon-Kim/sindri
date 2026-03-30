@@ -212,6 +212,6 @@ describe("sindri help", () => {
     expect(stdout).toContain("sindri status");
     expect(stdout).toContain("sindri results");
     expect(stdout).toContain("sindri clean");
-    expect(stdout).toContain("/sindri cycle");
+    expect(stdout).toContain("/sindri:cycle");
   });
 });
