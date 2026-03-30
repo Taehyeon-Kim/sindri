@@ -1,6 +1,6 @@
 {
   "name": "sindri",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Autonomous improvement loop framework — write one evaluate function, let LLM iterate forever.",
   "type": "module",
   "bin": {
